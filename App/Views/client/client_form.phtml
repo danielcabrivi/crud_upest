@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- start: Head -->
+    <?php $this->render('common/head'); ?> 
+    <!-- end: Head -->
+
+    <body id="mimin" class="dashboard">
+        <!-- start: Header -->
+        <?php $this->render('common/header'); ?>
+        <!-- end: Header --> 
+
+        <div class="container-fluid mimin-wrapper">
+
+            <!-- start: Left Menu -->
+            <?php $this->render('common/leftMenu'); ?>
+            <!-- end: Left Menu -->
+
+            <!-- start: content -->
+            <div id="content">
+                <!-- start: Top Menu -->
+                <div class="panel">
+                    <div class="panel-body padding-0">
+                        <div class="col-md-12 col-sm-12">
+                            <?php if ($client_data): ?>
+                                <h3 class="animated fadeInLeft">Clientes > Alterar</h3>
+                            <?php else: ?>
+                                <h3 class="animated fadeInLeft">Clientes > Cadastrar</h3>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Top Menu -->
+
+                <!-- start: conteúdo central -->
+                <div class="form-element">
+                    <div class="col-md-12 padding-0">
+                        <div class="col-md-12">
+                            <div class="panel form-element-padding">
+                                <div class="panel-heading bg-blue">
+                                    <?php if ($client_data): ?>
+                                        <h4 style="color: white"> Alterar</h4>
+                                    <?php else: ?>
+                                        <h4 style="color: white"> Novo</h4>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="panel-body" style="padding-bottom:30px;">
+                                    <div class="col-md-12">
+                                        <form class="cmxform" id="frmClient" name="frmClient" method="POST" action="<?= url()->route('client_save'); ?>">
+                                            <?php if ($client_data): ?>
+                                                <input type="hidden" name="myId" value="<?= $client_data->myId; ?>">
+                                            <?php endif; ?>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group form-animate-text col-md-6" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_name" name="name" required value="<?= $client_data ? $client_data->name : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Nome Completo*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-3" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_document" name="document" required value="<?= $client_data ? $client_data->document : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>CPF ou CNPJ*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-checkbox">
+                                                    <input type="checkbox" class="checkbox"  id="validate_InvoiceHoldIss" name="InvoiceHoldIss" <?= $client_data ? $client_data->InvoiceHoldIss ? 'checked' : '' : ''?>>
+                                                    <label>Retenção de ISS</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group form-animate-text col-md-4" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_email1" name="email1" required value="<?= $client_data ? $client_data->email1 : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Email Principal*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-4" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_email2" name="email2" value="<?= $client_data ? $client_data->email2 : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Email Secundário</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-2" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_phone1" name="phone1" value="<?= $client_data ? $client_data->phone1 : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Telefone Principal</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-2" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_phone2" name="phone2" value="<?= $client_data ? $client_data->phone2 : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Telefone Secundário</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group form-animate-text col-md-3" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_municipalDocument" name="municipalDocument" value="<?= $client_data ? $client_data->municipalDocument : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Inscrição Municipal</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-3" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_zipCode" name="zipCode" required value="<?= $client_data ? $client_data->zipCode : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>CEP*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-6" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_street" name="street" required value="<?= $client_data ? $client_data->street : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Lograouro*</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group form-animate-text col-md-2" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_number" name="number" required value="<?= $client_data ? $client_data->number : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Número*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-2" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_complement" name="complement" value="<?= $client_data ? $client_data->complement : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Complemento</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-3" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_neighborhood" name="neighborhood" required value="<?= $client_data ? $client_data->neighborhood : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Bairro*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-4" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_city" name="city" required value="<?= $client_data ? $client_data->city : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Cidade*</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-1" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_state" name="state" required value="<?= $client_data ? $client_data->state : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Estado*</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group form-animate-text col-md-6" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_tagName" name="tagName" value="<?= $client_data ? $client_data->tagName : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>TAG do Campo Personalizado</label>
+                                                </div>
+
+                                                <div class="form-group form-animate-text col-md-6" style="margin:15px 0 !important;">
+                                                    <input type="text" class="form-text" id="validate_tagValue" name="tagValue" value="<?= $client_data ? $client_data->tagValue : '' ?>">
+                                                    <span class="bar"></span>
+                                                    <label>Valor do Campo Personalizado</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="padding-bottom: 10px">
+                                                <div class="col-md-3" style="margin-top:10px; float: right">
+                                                    <button class="submit btn ripple btn-raised btn-success" type="submit">
+                                                        <div>
+                                                            <span class="fa fa-save"></span>
+                                                            <span style="margin-left: 10px;"><b>Salvar</b></span>
+                                                            <span class="ink animate" style="height: 87px; width: 87px; top: -35.5px; left: -1px;"></span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-3" style="margin-top:10px; float: right">
+                                                    <button type="reset" id="btnCancelar" onclick="javascript:window.location.href = '<?= url()->route('index') ?>';" class="btn ripple btn-raised btn-danger">
+                                                        <div>
+                                                            <span class="fa fa-close"></span>
+                                                            <span style="margin-left: 10px;"><b>Cancelar</b></span>
+                                                            <span class="ink animate" style="height: 87px; width: 87px; top: -35.5px; left: -1px;"></span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <label class="control-label text-left">* Campos Obrigatórios!</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: conteúdo central -->
+            </div>
+            <!-- end: content -->
+        </div>
+
+        <!-- start: Mobile -->
+        <?php $this->render('common/mobileMenu'); ?>
+        <!-- end: Mobile -->
+
+        <!-- start: Javascript -->
+        <script src="<?=assets()->js('jquery.min.js');?>"></script>
+        <script src="<?=assets()->js('jquery.ui.min.js');?>"></script>
+        <script src="<?=assets()->js('bootstrap.min.js');?>"></script>
+
+        <script src="<?=assets()->js('plugins/moment.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.knob.js');?>"></script>
+        <script src="<?=assets()->js('plugins/bootstrap-material-datetimepicker.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.nicescroll.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.mask.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/select2.full.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/nouislider.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/ion.rangeSlider.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.validate.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/summernote.min.js');?>"></script>
+
+        <script src="<?=assets()->js('plugins/jquery.datatables.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/datatables.bootstrap.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/dropzone.js');?>"></script>
+
+        <script src="<?=assets()->js('main.js');?>"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                $("#frmClient").validate({
+                    errorElement: "em",
+                    errorPlacement: function(error, element) {
+                        $(element.parent("div").addClass("form-animate-error"));
+                        error.appendTo(element.parent("div"));
+                    },
+                    success: function(label) {
+                        $(label.parent("div").removeClass("form-animate-error"));
+                    },
+                    rules: {
+                        name: "required",
+                        document: {
+                            required: true,
+                            minlength: 11,
+                            digits: true
+                        },
+                        email1: {
+                            required: true,
+                            email: true
+                        },
+                        email2: {
+                            email: true
+                        },
+                        phone1: {
+                            digits: true,
+                            minlength: 10
+                        },
+                        phone2: {
+                            digits: true,
+                            minlength: 10
+                        },
+                        zipCode: {
+                            required: true,
+                            minlength: 8,
+                            maxlength: 8,
+                            digits: true
+                        },
+                        street: "required",
+                        number: "required",
+                        neighborhood: "required",
+                        city: "required",
+                        state: {
+                            required: true,
+                            minlength: 2,
+                            maxlength: 2
+                        }
+                    },
+
+                    messages: {
+                        name: "Você deve informar um nome",
+                        document: {
+                            required: "Você deve informar um CPF ou CNPJ",
+                            minlength: "O CPF deve conter no mínimo 11 digitos",
+                            digits: "Informe apenas números"
+                        },
+                        email1: {
+                            required: "Você deve informar um e-mail",
+                            email: "Informe um e-mail válido"
+                        },
+                        email2: {
+                            email: "Informe um e-mail válido"
+                        },
+                        phone1: {
+                            minlength: "Informe o telefone com DDD",
+                            digits: "Informe apenas números"
+                        },
+                        phone2: {
+                            minlength: "Informe o telefone com DDD",
+                            digits: "Informe apenas números"
+                        },
+                        zipCode: {
+                            required: "Informe o CEP",
+                            minlength: "Informe o CEP completo: 8 digitos",
+                            maxlength: "Informe o CEP completo: 8 digitos",
+                            digits: "Informe apenas números"
+                        },
+                        street: "O campo Logradouro não pode estar vazio",
+                        number: "O campo Número não pode estar vazio",
+                        neighborhood: "O campo Bairro não pode estar vazio",
+                        city: "O campo Cidade não pode estar vazio",
+
+                        state: {
+                            required: "O campo Estado não pode estar vazio",
+                            minlength: "Informe apenas a sigla do estado. Ex: MG",
+                            maxlength: "Informe apenas a sigla do estado. Ex: MG"
+                        }
+                    }
+                });
+            });
+
+        </script>
+        <!-- end: Javascript -->
+    </body>
+</html>

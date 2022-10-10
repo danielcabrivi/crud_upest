@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- start: Head -->
+    <?php $this->render('common/head'); ?>
+    <!-- end: Head -->
+
+    <body id="mimin" class="dashboard form-signin-wrapper">
+        
+        <!-- start: Header -->
+        <?php $this->render('common/header'); ?>
+        <!-- end: Header -->
+        
+        <div class="container-fluid mimin-wrapper">
+
+            <!-- start: Left Menu -->
+            <?php $this->render('common/leftMenu'); ?>
+            <!-- end: Left Menu -->
+
+            <!-- start: content -->
+            <div id="content">
+        
+                <div class="col-md-12">
+
+                    <!-- start: Content -->
+                    <center>
+                      <div class="page-404 animated flipInX">
+                        <img src="<?= assets()->img('error_image.png') ?>" class="img-responsive"/>
+                        <a href="<?= DIR_BASE ?>/app/index"> Voltar à página principal
+                          </br>
+                          <span class="icons icon-arrow-down"></span>
+                        </a>
+                      </div>
+                    </center>
+                    <!-- end: content -->
+                </div>
+                
+            </div>
+            <!-- end: Content -->
+        </div>
+        <!-- start: Javascript -->
+        <script src="asset/js/jquery.min.js"></script>
+        <script src="asset/js/jquery.ui.min.js"></script>
+        <script src="asset/js/bootstrap.min.js"></script>
+
+        <script src="asset/js/plugins/moment.min.js"></script>
+        <script src="asset/js/plugins/icheck.min.js"></script>
+
+        <!-- custom -->
+        <script src="asset/js/main.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+            });
+        </script>
+        <!-- end: Javascript -->
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<?php
+session()->put('_pag_login', true);  
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- start: Head -->
+    <?php $this->render('common/head'); ?>
+    <!-- end: Head -->
+
+    <body id="mimin" class="dashboard form-signin-wrapper">
+        <div class="container">
+            <form class="form-signin" action="/login.validar" method="POST">
+                <div class="panel periodic-login">
+
+
+                    <div style="margin-top: 20px" class="panel-body text-center">
+                        <h3 class="text-center"><?= NOME_SITE ?></h3>
+                        <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                            <input name="login_user" type="text" class="form-text" required>
+                            <span class="bar"></span>
+                            <label>Login</label>
+                        </div>
+                        <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                            <input name="login_pass" type="password" class="form-text" required>
+                            <span class="bar"></span>
+                            <label>Senha</label>
+                        </div>
+                        <input type="submit" class="btn btn-success col-md-12" style="font-size: 20px;" value="ENTRAR"/>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- end: Content -->
+        <!-- start: Javascript -->
+        <script src="asset/js/jquery.min.js"></script>
+        <script src="asset/js/jquery.ui.min.js"></script>
+        <script src="asset/js/bootstrap.min.js"></script>
+
+        <script src="asset/js/plugins/moment.min.js"></script>
+        <script src="asset/js/plugins/icheck.min.js"></script>
+
+        <!-- custom -->
+        <script src="asset/js/main.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+            });
+        </script>
+        <!-- end: Javascript -->
+    </body>
+</html>

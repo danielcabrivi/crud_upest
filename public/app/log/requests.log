@@ -1,0 +1,158 @@
+[09-10-2022 23:34:31] - REQUEST: POST - JSON: {"myId":"MYID_DANIEL_51","name":"asdfasdf","document":"11670366626","invoiceHoldIss":false,"Address":{"zipCode":32132132,"street":"asdfds","number":"21","complement":null,"neighborhood":"sdfsdf","city":"dfsdf","state":"fd"},"emails":["sdf@sdf.c"]}
+[09-10-2022 23:38:02] - REQUEST: POST - JSON: {"myId":"MYID_DANIEL_52","name":"asdfasdf","document":"11670366626","invoiceHoldIss":false,"Address":{"zipCode":32132132,"street":"asdfds","number":"21","complement":null,"neighborhood":"sdfsdf","city":"dfsdf","state":"fd"},"emails":["sdf@sdf.c"]}
+[09-10-2022 23:38:02] - RESPONSE: POST - JSON: {
+    "error": {
+        "message": "Erros de valida\u00e7\u00e3o.",
+        "details": {
+            "Customer.Address.state": [
+                "O valor n\u00e3o \u00e9 um estado valido"
+            ]
+        }
+    }
+}
+[09-10-2022 23:38:10] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_48/myId
+[09-10-2022 23:38:10] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:38:14] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_49/myId
+[09-10-2022 23:38:14] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:38:18] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_52/myId
+[09-10-2022 23:38:18] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:38:21] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_51/myId
+[09-10-2022 23:38:21] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:38:24] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_50/myId
+[09-10-2022 23:38:24] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:38:27] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_46/myId
+[09-10-2022 23:38:27] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "N\u00e3o encontramos nenhum registro com o dado informado."
+    }
+}
+[09-10-2022 23:39:48] - REQUEST: POST - JSON: {"myId":"MYID_DANIEL_53","name":"DANIEL VIANA","document":"11670366626","invoiceHoldIss":true,"Address":{"zipCode":31270213,"street":"SFSDFS","number":"321","complement":null,"neighborhood":"ASDFSD","city":"DFSF","state":"MG"},"emails":["TESTE@TESTE.COM"]}
+[09-10-2022 23:39:48] - RESPONSE: POST - JSON: {
+    "type": true,
+    "Customer": {
+        "myId": "MYID_DANIEL_53",
+        "galaxPayId": 3573,
+        "name": "DANIEL VIANA",
+        "document": "11670366626",
+        "createdAt": "2022-10-09 23:39:48",
+        "updatedAt": "2022-10-09 23:39:48",
+        "emails": [
+            "TESTE@TESTE.COM"
+        ],
+        "phones": [],
+        "Address": {
+            "zipCode": "31270213",
+            "street": "SFSDFS",
+            "number": "321",
+            "complement": null,
+            "neighborhood": "ASDFSD",
+            "city": "DFSF",
+            "state": "MG"
+        },
+        "ExtraFields": []
+    }
+}
+[09-10-2022 23:41:26] - REQUEST: POST - JSON: {"myId":"MYID_DANIEL_54","name":"TESTE 2","document":"17217985000104","invoiceHoldIss":true,"Address":{"zipCode":32132132,"street":"TESTEF","number":"21","complement":null,"neighborhood":"SDF","city":"DFSD","state":"AL"},"emails":["T@T3.COM"]}
+[09-10-2022 23:41:26] - RESPONSE: POST - JSON: {
+    "type": true,
+    "Customer": {
+        "myId": "MYID_DANIEL_54",
+        "galaxPayId": 3574,
+        "name": "TESTE 2",
+        "document": "17217985000104",
+        "createdAt": "2022-10-09 23:41:26",
+        "updatedAt": "2022-10-09 23:41:26",
+        "emails": [
+            "T@T3.COM"
+        ],
+        "phones": [],
+        "Address": {
+            "zipCode": "32132132",
+            "street": "TESTEF",
+            "number": "21",
+            "complement": null,
+            "neighborhood": "SDF",
+            "city": "DFSD",
+            "state": "AL"
+        },
+        "ExtraFields": []
+    }
+}
+[09-10-2022 23:42:12] - REQUEST: POST - JSON: {"myId":"MYID_DANIEL_55","name":"RTERTERTERTE","document":"11670366626","invoiceHoldIss":false,"Address":{"zipCode":65465432,"street":"SDFSDFSD","number":"40","complement":null,"neighborhood":"ASDFD","city":"SDFSDF","state":"PE"},"emails":["DF@ER.COM"]}
+[09-10-2022 23:42:12] - RESPONSE: POST - JSON: {
+    "type": true,
+    "Customer": {
+        "myId": "MYID_DANIEL_55",
+        "galaxPayId": 3573,
+        "name": "RTERTERTERTE",
+        "document": "11670366626",
+        "createdAt": "2022-10-09 23:39:48",
+        "updatedAt": "2022-10-09 23:42:11",
+        "emails": [
+            "DF@ER.COM"
+        ],
+        "phones": [],
+        "Address": {
+            "zipCode": "65465432",
+            "street": "SDFSDFSD",
+            "number": "40",
+            "complement": null,
+            "neighborhood": "ASDFD",
+            "city": "SDFSDF",
+            "state": "PE"
+        },
+        "ExtraFields": []
+    }
+}
+[09-10-2022 23:42:23] - REQUEST: PUT - JSON: {"myId":"MYID_DANIEL_55","name":"EDITADO","document":"11670366626","invoiceHoldIss":false,"Address":{"zipCode":65465432,"street":"SDFSDFSD","number":"40","complement":null,"neighborhood":"ASDFD","city":"SDFSDF","state":"PE"},"emails":["DF@ER.COM"]}
+[09-10-2022 23:42:23] - RESPONSE: PUT - JSON: {
+    "type": true,
+    "Customer": {
+        "myId": "MYID_DANIEL_55",
+        "galaxPayId": 3573,
+        "name": "EDITADO",
+        "document": "11670366626",
+        "createdAt": "2022-10-09 23:39:48",
+        "updatedAt": "2022-10-09 23:42:23",
+        "emails": [
+            "DF@ER.COM"
+        ],
+        "phones": [],
+        "Address": {
+            "zipCode": "65465432",
+            "street": "SDFSDFSD",
+            "number": "40",
+            "complement": null,
+            "neighborhood": "ASDFD",
+            "city": "SDFSDF",
+            "state": "PE"
+        },
+        "ExtraFields": []
+    }
+}
+[09-10-2022 23:42:27] - REQUEST: DELETE - JSON: https://api.sandbox.cloud.galaxpay.com.br/v2/customers/MYID_DANIEL_54/myId
+[09-10-2022 23:42:27] - RESPONSE: DELETE - JSON: {
+    "error": {
+        "message": "O cliente foi excluido, por\u00e9m, n\u00e3o foi encontrado nenhuma cobran\u00e7a avulsa\/assinatura para cancelar."
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!-- start: Head -->
+    <?php $this->render('common/head'); ?>
+    <!-- end: Head -->
+    <body id="mimin" class="dashboard">
+        <div  id="popup-site">
+            <div class="modal-example">
+                <div class="col-md-12">
+                    <div class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Deseja excluir este registro?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Após confirmada, esta operação não poderá ser desfeita!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button onclick="javascript:fecharPopupSite()" type="button" class="btn btn-danger">Cancelar</button>
+                                    <button id="btnConfirmaPopupSite" onclick="javascript:confirmaPopupSite()" type="button" class="btn btn-success">Confirmar</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </div>
+
+        <!-- start: Header -->
+        <?php $this->render('common/header'); ?>
+        <!-- end: Header --> 
+
+        <div class="container-fluid mimin-wrapper">
+
+            <!-- start: Left Menu -->
+            <?php $this->render('common/leftMenu'); ?>
+            <!-- end: Left Menu -->
+
+            <!-- start: content -->
+            <div id="content">
+                <!-- start: Top Menu -->
+                <div class="panel">
+                    <div class="panel-body padding-0">
+                        <div class="col-md-12 col-sm-12">
+                            <h3 class="animated fadeInLeft">Clientes</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Top Menu -->
+
+                <!-- start: conteúdo central -->
+
+                <div class="col-md-12 padding-0 modal-example">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <?php if (session()->has('_sucesso')): ?>
+                                <div class="alert alert-success" role="alert"><?= session()->getAndRemove('_sucesso'); ?></div>
+                            <?php endif; ?>
+
+                            <?php if (session()->has('_sucesso_API')): ?>
+                                <div class="alert alert-success" role="alert"><?= session()->getAndRemove('_sucesso_API'); ?></div>
+                            <?php endif; ?>
+
+                            <?php if (session()->has('_erro')): ?>
+                                <div class="alert alert-warning" role="alert"><?= session()->getAndRemove('_erro'); ?></div>
+                            <?php endif; ?>
+
+                            <?php if (session()->has('_erro_API')): ?>
+                                <div class="alert alert-warning" role="alert"><?= session()->getAndRemove('_erro_API'); ?></div>
+                            <?php endif; ?>
+
+                            <div style="height: 67px" class="panel-heading bg-dark-blue-grey">
+                                <h3 style="float: left; color: white">Gerenciar Clientes</h3>
+                                <div class="col-md-2" style="margin-top:10px; float: right">
+                                    <button onclick="javascript:window.location.href = 'client_form'" class="btn ripple btn-raised btn-primary">
+                                        <div>
+                                            <span class="fa fa-plus"></span>
+                                            <span style="margin-left: 10px;">Adicionar</span>
+                                            <span class="ink animate" style="height: 87px; width: 87px; top: -35.5px; left: -1px;"></span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="responsive-table">
+                                    <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>My Id</th>
+                                            <th>Nome</th>
+                                            <th>Documento</th>
+                                            <th>E-mail Principal</th>
+                                            <th>Telefone Principal</th>
+                                            <th style="width: 35px;">Editar</th>
+                                            <th style="width: 35px;">Excluir</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach ($client_data as $dados): ?>
+                                            <tr>
+                                                <td><?= $dados->myId ?></td>
+                                                <td><?= $dados->name ?></td>
+                                                <td><?= $dados->document ?></td>
+                                                <td><?= $dados->email1 ?></td>
+                                                <td><?= $dados->phone1 ?></td>
+
+                                                <td align="center">
+                                                    <button onclick="javascript:window.location.href = 'client_form/myId/<?= $dados->myId ?>';" style="height: 20px; width: 40px; padding: 0;" class="btn ripple btn-raised btn-primary">
+                                                        <span class="fa fa-edit"></span>
+                                                    </button>
+                                                </td>
+                                                <td align="center">
+                                                    <button  onclick="javascript:abrirPopupSite(<?= $dados->myId ?>)" style="height: 20px; width: 40px; padding: 0;" class="btn ripple btn-raised btn-danger">
+                                                        <span class="fa fa-trash"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                <!-- end: conteúdo central -->
+
+            </div>
+            <!-- end: content -->
+        </div>
+
+        <!-- start: Mobile -->
+        <?php $this->render('common/mobileMenu'); ?>
+        <!-- end: Mobile -->
+
+
+
+        <!-- start: Javascript -->
+        <script src="<?=assets()->js('jquery.min.js');?>"></script>
+        <script src="<?=assets()->js('jquery.ui.min.js');?>"></script>
+        <script src="<?=assets()->js('bootstrap.min.js');?>"></script>
+
+        <!-- plugins -->
+        <script src="<?=assets()->js('plugins/moment.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.datatables.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/datatables.bootstrap.min.js');?>"></script>
+        <script src="<?=assets()->js('plugins/jquery.nicescroll.js');?>"></script>
+
+        <!-- custom -->
+        <script src="<?=assets()->js('main.js');?>"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#datatables-example').DataTable();
+                document.getElementById('popup-site').style.display = 'none';
+
+                var altura = $(document).height();
+                $("#popup-site").css({"height": +altura + "px"});
+
+            });
+
+            function fecharPopupSite() {
+                document.getElementById('popup-site').style.display = 'none';
+            }
+
+            function abrirPopupSite(codigo) {
+                document.getElementById('popup-site').style.display = 'block';
+                $('#btnConfirmaPopupSite').attr("onclick", 'javascript:confirmaPopupSite(' + codigo + ')');
+            }
+
+            function confirmaPopupSite(codigo) {
+                window.location.href = 'deleteClient/myId/' + codigo;
+                fecharPopupSite();
+            }
+        </script>
+
+                <!-- end: Javascript -->
+    </body>
+</html>

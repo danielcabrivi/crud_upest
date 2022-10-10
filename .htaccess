@@ -1,0 +1,49 @@
+#<IfModule mod_rewrite.c>
+#    RewriteEngine on
+
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+
+#    RewriteRule ^(.*)$ public/index.php?url=$1
+#    RewriteRule !\.(js|gif|jpg|jpeg|png|css|txt|eot|ttf|woff|svg|htm|ico|xml|woff2)$ public/index.php
+
+#    RewriteRule ^tratamentos.html?$ public/?page=texto&action=tratamentos [NC,L]
+#    RewriteRule ^tratamentos/([0-9]+)/([a-z0-9-]+).html/?$ public/?page=texto&action=exibetexto&textoid=$1 [NC,L]
+#
+#    RewriteRule ^estetica-cosmiatria.html?$ public/?page=texto&action=estetica [NC,L]
+#    RewriteRule ^estetica-cosmiatria/([0-9]+)/([a-z0-9-]+).html/?$ public/?page=texto&action=exibetexto&textoid=$1 [NC,L]
+#
+#    RewriteRule ^a-clinica.html?$ public/?page=clinica&action=index [NC,L]
+#    RewriteRule ^equipe.html?$ public/?page=equipe&action=index [NC,L]
+#    RewriteRule ^depoimentos.html?$ public/?page=depoimentos&action=index [NC,L]
+#    RewriteRule ^contato.html?$ public/?page=contato&action=index [NC,L]
+#    RewriteRule ^index.html?$ public/?page=index&action=index [NC,L]
+#
+#    RewriteRule ^nutricao-e-fitness.html?$ public/?page=texto&action=nutricaoFitness [NC,L]
+#    RewriteRule ^nutricao-e-fitness/([0-9]+)/([a-z0-9-]+).html/?$ public/?page=texto&action=exibetexto&textoid=$1 [NC,L]
+#
+#    RewriteRule ^artigos.html?$ public/?page=texto&action=artigos [NC,L]
+#    RewriteRule ^artigos/([0-9]+)/([a-z0-9-]+).html/?$ public/?page=texto&action=exibetexto&textoid=$1 [NC,L]
+#
+#    RewriteRule ^receitas-saudaveis.html?$ public/?page=receitas&action=index [NC,L]
+#</IfModule>
+
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^(.*)$ public/index.php?url=$1
+RewriteRule !\.(mp4|json|pdf|js|gif|jpg|jpeg|png|css|txt|eot|ttf|woff|svg|htm|ico|xml|woff2|html)$ public/index.php
+
+
+#<IfModule mod_fcgid.c>
+#  RewriteCond %{HTTP:Authorization} .
+#   RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+#</IfModule>
+
+
+<IfModule mod_rewrite.c>
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L] RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+</IfModule>
